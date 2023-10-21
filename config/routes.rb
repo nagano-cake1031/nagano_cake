@@ -16,12 +16,16 @@ Rails.application.routes.draw do
 
   namespace :public do
     get '/' => "homes#top"
-    get '/' => "items#index"
+    get '/items' => "items#index"
   end
+
+  get '/customers/my_page' => "public/customers#show"
+  get '/customers/my_page/edit' => "public/customers#edit"
+  get '/orders' => "public/orders#index"
 
   resources :admin
   resources :public
-  resources :users, only: [:edit, :show]
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
