@@ -24,4 +24,10 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  private
+
+  def session_params
+    params.require(:session).permit(:email, :password)
+  end
+
 end
