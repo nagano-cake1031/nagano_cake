@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 
   get '/customers/my_page' => "public/customers#show"
   get '/customers/my_page/edit' => "public/customers#edit"
-  get '/orders' => "public/orders#index"
+  get '/customers/orders' => "public/orders#index"
+  get '/customers/cart_items' => "public/cart_items#index"
 
   resources :admin
   resources :public
