@@ -1,7 +1,7 @@
 <div clas="container">
   <div class="row">
     <div class="col-7 mt-5">
-    <h5 class="mb-5 ml-5 font-weight-bold">マイページ</h5>
+    <h5 class="col-2 mx-auto mb-5 ml-5 bg-warning">マイページ</h5>
 
 
   <table class="mb-3 ml-5">
@@ -13,7 +13,7 @@
   </theader>
   </table>
 
-  <table class="mb-3 ml-5">
+  <table class="mb-3 ml-5 w-100">
     <tbody>
       <tr>
         <td class="border border-3 p-2 w-40">氏名</td>
@@ -36,7 +36,7 @@
         <td class="border border-3"><%= @customer.telephone_number %></td>
       </tr>
       <tr>
-        <td class="border border-3 p-2">メールアドレス</td>
+        <td class="border border-3 p-2 w-40">メールアドレス</td>
         <td class="border border-3"><%= @customer.email %></td>
       </tr>
     </tbody>
