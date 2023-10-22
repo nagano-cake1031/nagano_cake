@@ -3,10 +3,9 @@
     <div class="mt-5">
     <h5 class="col-4 mx-auto mb-5 ml-5 bg-warning">会員情報編集</h5>
 
-
-  <table class="mb-3 ml-5 w-100">
+   <%= form_with model: @customer, url: my_page_edit_path do |f| %>
+  <table class="col-12 mb-3 ml-5">
     <tbody>
-      <%= form_with model: @customer, url: customers_my_page_edit_path do |f| %>
       <tr>
       <td class="p-2 w-50">氏名</td>
         <td><%= f.text_field :last_name %><td>
@@ -33,18 +32,14 @@
       <td class="p-2 w-50">メールアドレス</td>
         <td><%= f.text_field :email %><td>
       </tr>
+      <tr>
+        <td><%= f.submit '編集内容を保存', class: "btn btn-success ml-5 mt-5" %></td>
+        <td><%= link_to "退会する", customers_withdraw_confirmation_path, class: "btn btn-danger mt-5" %></td>
+      </tr>
     </tbody>
-    <% end %>
   </table>
+  <% end %>
 
-  <table class="ml-5 mt-5 w-100">
-    <tr>
-      <td><%= link_to "編集内容を保存", customers_my_page_path, class: "btn btn-success mr-7 ml-5" %></td>
-      <td><%= link_to "退会する", customers_withdraw_confirmation_path, class: "btn btn-danger" %></td>
-    </tr>
-  </table>
   </div>
   </div>
 </div>
-
-
