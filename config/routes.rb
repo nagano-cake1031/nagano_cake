@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   patch '/customers/my_page' => "public/customers#update", as: 'my_page_edit'
   get '/customers/orders' => "public/orders#index"
   get '/customers/cart_items' => "public/cart_items#index"
-  get '/customers/withdraw_confirmation' => "public/withdraw_confirmation#withdraw_confirmation"
+  get '/customers/withdraw_confirmation' => "public/customers#withdraw_confirmation"
+  patch '/customers/withdraw' => "public/withdraw#withdraw"
 
   resources :admin
   resources :public

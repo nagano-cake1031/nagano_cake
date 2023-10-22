@@ -14,7 +14,9 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
+  end
 
+  def withdraw_confirmation
   end
 
   private
