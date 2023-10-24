@@ -23,9 +23,9 @@
           </tr>
       <div class="text-right pr-5">
         <% if admin_signed_in? %>
-          <li>
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "border border-2 rounded p-2 m-3" %>
-          </li>
+          <tr>
+            <td> <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "border border-2 rounded p-2 m-3" %></td>
+          </tr>
         <% elsif customer_signed_in? %>
           <tr>
             <td><%= link_to "マイページ", customers_my_page_path, class: "border border-2 rounded p-2 m-3" %></td>
@@ -40,15 +40,15 @@
             <td><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "border border-2 rounded p-2 m-3" %></td>
           </tr>
         <% else %>
-          <li>
-            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "border border-2 rounded p-2 m-4" %>
-          </li>
-          <li>
-            <%= link_to "新規登録", new_customer_registration_path, class: "border border-2 rounded p-2 m-3" %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_customer_session_path, class: "border border-2 rounded p-2 m-3" %>
-          </li>
+          <tr>
+            <td><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "border border-2 rounded p-2 m-4" %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "新規登録", new_customer_registration_path, class: "border border-2 rounded p-2 m-3" %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "ログイン", new_customer_session_path, class: "border border-2 rounded p-2 m-3" %></td>
+          </tr>
         <% end %>
       </div>
         </tabele>
