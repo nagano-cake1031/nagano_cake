@@ -51,4 +51,10 @@ class Public::SessionsController < Devise::SessionsController
     params.require(:session).permit(:email, :password)
   end
 
+  private
+
+  def customer_params
+    params.require(:customer).permit(:is_active, :other_fields)
+  end
+
 end

@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get '/customers/orders' => "public/orders#index"
   get '/customers/cart_items' => "public/cart_items#index"
   get '/customers/withdraw_confirmation' => "public/customers#withdraw_confirmation"
-  patch '/customers/withdraw' => "public/withdraw#withdraw"
+  patch '/customers/withdraw' => "public/customers#withdraw"
 
   resources :admin
   resources :public
