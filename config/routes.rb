@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   get '/customers/withdraw_confirmation' => "public/customers#withdraw_confirmation"
   patch '/customers/withdraw' => "public/customers#withdraw"
 
+  get '/admin/items/new' => "admin/items#new"
+  post 'admin/items' => "admin/items#create"
+  # get '/admin/items' => "admin/items#:id"
+
   resources :admin
   resources :public
 
