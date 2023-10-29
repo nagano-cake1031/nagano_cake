@@ -11,7 +11,7 @@
     <table class="mb-3 pr-5 center-block">
     <tr>
       <td>商品画像</td>
-      <td><%= f.file_field :profile_image, accept: "image/*" %></td>
+      <td><%= f.file_field :image, accept: "image/*" %></td>
     </tr>
     </table>
 
@@ -36,7 +36,7 @@
     </tr>
     </table>
 
-    <div class="mt-5 p-5">
+    <div class="mt-5 p-10">
       <%= f.submit "新規登録", class: "btn-success" %>
     </div>
 

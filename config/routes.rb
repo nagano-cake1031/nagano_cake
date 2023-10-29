@@ -29,7 +29,8 @@ Rails.application.routes.draw do
 
   get '/admin/items/new' => "admin/items#new"
   post 'admin/items' => "admin/items#create"
-  # get '/admin/items' => "admin/items#:id"
+  get '/admin/items' => "admin/items#index"
+  get '/admin/items/:id' => "admin/items#show"
 
   resources :admin
   resources :public

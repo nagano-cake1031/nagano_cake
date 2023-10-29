@@ -1,15 +1,24 @@
 class Admin::ItemsController < ApplicationController
 
+def index
+ @items = Item.all
+# @item = Item.find(@items)
+ @items = @items.page(params[:page])
+end
+
 def new
  @item = Item.new
- @item_image = Item.new
+end
+
+def show
+ @item = Item.find(params[:id])
+ @items = @items.page(params[:page])
 end
 
 def create
- @item_image = @Item_image.new(params[:id])
- @item_image = Item.new(params)
- @item_image.save
- redirect_to admin_items_pat
+ @item = Item.new(item_params)
+ @item.save
+ redirect_to admin_items_path(@item)
 end
 
 def update
@@ -19,7 +28,7 @@ end
 private
 
   def item_params
-    params.require(:item).permit(:name, :item_image, :introduction, :price)
+    params.require(:item).permit(:name, :image, :introduction, :price)
   end
 
 end
