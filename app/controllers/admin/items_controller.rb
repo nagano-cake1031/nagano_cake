@@ -12,7 +12,7 @@ end
 
 def show
  @item = Item.find(params[:id])
- @items = @items.page(params[:page])
+ @item_image = Item.new
 end
 
 def create
@@ -21,8 +21,13 @@ def create
  redirect_to admin_items_path(@item)
 end
 
+def edit
+end
+
 def update
- @item = Item.find(params[:id])
+ @item = Item.find(@itame)
+ @item.update
+ redirect_to admin_items_path
 end
 
 private

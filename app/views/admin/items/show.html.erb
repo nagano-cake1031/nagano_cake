@@ -1,1 +1,40 @@
-商品詳細ページ
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+        <div class="mt-5 pl-5 bg-secondary">
+        <h5>商品詳細</h5>
+        </div>
+
+            <div class="mt-5">
+            <p><%= image_tag @item.image %></p>
+            </div>
+        </div>
+
+        <div class="col-7 mt-5">
+            <table class="m-3">
+                <td>
+                    <tr>商品名</tr>
+                    <tr><%= @item.name %></tr>
+                </td>
+            </table>
+            <table class="m-3">
+                 <td>
+                    <tr>商品説明</tr>
+                    <tr><%= @item.introduction %></tr>
+                </td>
+            </table>
+            <table class="m-3">
+                <td>
+                    <tr>税抜価格</tr>
+                    <tr><%= @item.price %>円</tr>
+                </td>
+            </table>
+
+            <footer>
+            <%= link_to "編集する", admin_items_edit_path, class: "bnt-success" %>
+            </footer>
+
+        </div>
+
+    </div>
+</div>

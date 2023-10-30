@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   post 'admin/items' => "admin/items#create"
   get '/admin/items' => "admin/items#index"
   get '/admin/items/:id' => "admin/items#show"
+  get '/admin/items/edit' => "admin/items#edit"
+  patch 'admin/items/:id' => "admin/items#update"
+
 
   resources :admin
   resources :public
