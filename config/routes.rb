@@ -30,8 +30,8 @@ Rails.application.routes.draw do
   get '/admin/items/new' => "admin/items#new"
   post 'admin/items' => "admin/items#create"
   get '/admin/items' => "admin/items#index"
-  get '/admin/items/:id' => "admin/items#show"
-  get '/admin/items/edit' => "admin/items#edit"
+  get '/admin/items/:id' => "admin/items#show", as: 'admin_item'
+  get '/admin/items/:id/edit' => "admin/items#edit", as: 'admin_items_edit'
   patch 'admin/items/:id' => "admin/items#update"
 
 

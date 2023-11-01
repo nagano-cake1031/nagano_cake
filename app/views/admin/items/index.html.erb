@@ -19,7 +19,7 @@
         <table class="mt-2 mb-2 w-50 text-left border-top">
             <tr>
                 <td class="pl-5 pt-2 pb-2 co1-3"><%= item.id %></td>
-                <td class="col-5 text-center"><%= link_to item.name, admin_items_path(params[:id]) %></td>
+                <td class="col-5 text-center"><%= link_to item.name, admin_item_path(item.id) %></td>
                 <td class="text-center col-6"><%= item.price %></td>
             </tr>
         </table>
