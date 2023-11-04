@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
-
-        <div class="mt-5 pl-5 bg-secondary">
-        <h5>商品一覧</h5>
-        </div>
+       <table>
+            <div class="mt-5 pl-5 bg-warning col-2">
+            <h5>商品一覧</h5>
+            </div>
+       </table>
 
         <body>
-        <table class="mt-3 w-50 text-left table table-striped">
+        <table class="mt-3 w-50 text-left table table-striped col-12">
             <tr>
                 <th class="pl-5">商品ID</th>
                 <th class="col-5">商品名</th>
@@ -16,7 +16,7 @@
         </table>
 
         <% @items.each do |item| %>
-        <table class="mt-2 mb-2 w-50 text-left border-top">
+        <table class="mt-2 mb-2 w-50 text-left border-top col-12">
             <tr>
                 <td class="pl-5 pt-2 pb-2 co1-3"><%= item.id %></td>
                 <td class="col-5 text-center"><%= link_to item.name, admin_item_path(item.id) %></td>
@@ -26,9 +26,9 @@
         <% end %>
         </body>
 
-        <footer class="pl-5 border-top pt-3 w-50">
+        <footer class="pl-5 border-top pt-3 w-50 col-12 pb-5">
         <%= paginate @items %>
         </footer>
   </div>
 </div>
-</div>
+
