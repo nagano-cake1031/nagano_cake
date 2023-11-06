@@ -5,6 +5,18 @@ class Admin::CustomersController < ApplicationController
     @customer = @customers.page(params[:page])
   end
 
+  def show
+    @customer = Customer.find(params[:id])
+  end
+
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+  
+  def update
+        
+  end
+
   private
 
   def item_params

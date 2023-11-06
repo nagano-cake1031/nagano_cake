@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+       <table>
+            <div class="mt-5 pl-5 bg-warning col-5">
+            <h5><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h5>
+            </div>
+       </table>
+
+       <div class="col-12 mt-5">
+
+        <body>
+        <%= form_with model: @customer, method: :patch, url: admin_customer_path(@customer) do |f| %>
+        <table>
+            <td>
+              <tr><label for="inputName">氏名</label></tr>
+              <tr><%= f.text_field :last_name, autofocus: true, id:"@customer", placeholder:"氏名" %></tr>
+            　<tr><%= f.text_field :first_name, autofocus: true, id:"@customer", placeholder:"氏名" %></tr>
+            </td>
+        </table>
+        <table class="mt-3">
+            <td>
+              <tr><label for="inputName">フリガナ</label></tr>
+              <tr><%= f.text_field :last_name_kana, autofocus: true, id:"@customer", placeholder:"フリガナ" %></tr>
+            　<tr><%= f.text_field :first_name_kana, autofocus: true, id:"@customer", placeholder:"フリガナ" %></tr>
+            </td>
+        </table>
+         <table class="mt-3">
+            <td>
+              <tr><label for="inputName">郵便番号</label></tr>
+              <tr><%= f.text_field :postal_code, autofocus: true, id:"@customer", placeholder:"郵便番号" %></tr>
+            </td>
+        </table>
+         <table class="mt-3">
+            <td>
+              <tr><label for="inputName">住所</label></tr>
+              <tr><%= f.text_field :address, autofocus: true, id:"@customer", placeholder:"住所" %></tr>
+            </td>
+        </table>
+         <table class="mt-3">
+            <td>
+              <tr><label for="inputName">電話番号</label></tr>
+              <tr><%= f.text_field :telephone_number, autofocus: true, id:"@customer", placeholder:"電話番号" %></tr>
+            </td>
+        </table>
+        <table class="mt-3">
+            <td>
+              <tr><label for="inputName">メールアドレス</label></tr>
+              <tr><%= f.text_field :email, autofocus: true, id:"@customer", placeholder:"メールアドレス" %></tr>
+            </td>
+        </table>
+
+         <div>
+          <%= f.submit "変更を保存する", class: "btn-success p-3 m-5 rounded" %>
+        </div>
+
+        <% end %>
+        </div>
+
+
+  </div>
+</div>
+
