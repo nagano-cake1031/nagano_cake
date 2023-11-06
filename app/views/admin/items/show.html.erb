@@ -6,7 +6,7 @@
         </div>
 
             <div class="mt-5">
-            <p><%= image_tag @item.image %></p>
+            <p><%= image_tag @item.image, :size =>'400x200' %></p>
             </div>
         </div>
 
@@ -33,6 +33,7 @@
             <footer>
             <%= link_to "編集する", admin_items_edit_path(@item.id), class: "btn-success p-3 rounded" %>
             </footer>
+        </tabel>
         </div>
     </div>
 </div>

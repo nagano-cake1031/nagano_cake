@@ -11,33 +11,27 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    get '/' => "homes#top"
+    root to: "homes#top"
+    get 'items/new' => "items#new"
+    post 'items' => "items#create"
+    get 'items' => "items#index"
+    get 'items/:id' => "items#show", as: 'item'
+    get 'items/:id/edit' => "items#edit", as: 'items_edit'
+    patch 'items/:id' => "items#update"
   end
 
-  namespace :public do
-    get '/' => "homes#top"
-    get '/items' => "items#index"
+ scope module: :public do
+    resources :items, only: [:index, :show]
+    root to: 'homes#top'
+    resources :customers, only: [:show, :edit, :update]
+    get '/customers/my_page' => "/customers#show"
+    get '/customers/my_page/edit' => "/customers#edit"
+    patch '/customers/my_page' => "/customers#update", as: 'my_page_edit'
+    get '/customers/orders' => "/orders#index"
+    get '/customers/cart_items' => "/cart_items#index"
+    get '/customers/withdraw_confirmation' => "/customers#withdraw_confirmation"
+    patch '/customers/withdraw' => "/customers#withdraw"
   end
-
-  get '/customers/my_page' => "public/customers#show"
-  get '/customers/my_page/edit' => "public/customers#edit"
-  patch '/customers/my_page' => "public/customers#update", as: 'my_page_edit'
-  get '/customers/orders' => "public/orders#index"
-  get '/customers/cart_items' => "public/cart_items#index"
-  get '/customers/withdraw_confirmation' => "public/customers#withdraw_confirmation"
-  patch '/customers/withdraw' => "public/customers#withdraw"
-
-  get '/admin/items/new' => "admin/items#new"
-  post 'admin/items' => "admin/items#create"
-  get '/admin/items' => "admin/items#index"
-  get '/admin/items/:id' => "admin/items#show", as: 'admin_item'
-  get '/admin/items/:id/edit' => "admin/items#edit", as: 'admin_items_edit'
-  patch 'admin/items/:id' => "admin/items#update"
-
-
-  resources :admin
-  resources :public
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
