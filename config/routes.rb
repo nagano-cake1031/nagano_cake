@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "homes#top"
+    resources :customers, only: [:index, :show, :edit, :update]
     get 'items/new' => "items#new"
     post 'items' => "items#create"
     get 'items' => "items#index"
