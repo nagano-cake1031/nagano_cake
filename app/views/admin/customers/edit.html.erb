@@ -1,57 +1,50 @@
 <div class="container">
     <div class="row">
-       <table>
-            <div class="mt-5 pl-5 bg-warning col-5">
-            <h5><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h5>
-            </div>
-       </table>
+        <div class="mt-5 pl-5 bg-warning col-4">
+          <h5><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h5>
+        </div>
+    </div>
 
-       <div class="col-12 mt-5">
-
+    <div class="row">
+      <div class="col-12 mt-5">
         <body>
         <%= form_with model: @customer, method: :patch, url: admin_customer_path(@customer) do |f| %>
         <table>
             <tr>
-              <td><label for="inputName">氏名</label></dr>
-              <td><%= f.text_field :last_name, autofocus: true, id:"@customer", placeholder:"氏名" %></td>
-            　<td><%= f.text_field :first_name, autofocus: true, id:"@customer", placeholder:"氏名" %></td>
+              <td class="w-40 p-2"><label for="inputName">氏名</label></dr>
+              <td class="pl-5"><%= f.text_field :last_name, autofocus: true, id:"@customer", placeholder:"氏名" %></td>
+            　<td class="pl-5"><%= f.text_field :first_name, autofocus: true, id:"@customer", placeholder:"氏名" %></td>
             </tr>
 
             <tr>
-              <td><label for="inputName">フリガナ</label></td>
-              <td><%= f.text_field :last_name_kana, autofocus: true, id:"@customer", placeholder:"フリガナ" %></td>
-            　<td><%= f.text_field :first_name_kana, autofocus: true, id:"@customer", placeholder:"フリガナ" %></td>
+              <td class="w-40 p-2"><label for="inputName">フリガナ</label></td>
+              <td class="pl-5"><%= f.text_field :last_name_kana, autofocus: true, id:"@customer", placeholder:"フリガナ" %></td>
+            　<td class="pl-5"><%= f.text_field :first_name_kana, autofocus: true, id:"@customer", placeholder:"フリガナ" %></td>
             </tr>
 
             <tr>
-              <td><label for="inputName">郵便番号</label></td>
-              <td><%= f.text_field :postal_code, autofocus: true, id:"@customer", placeholder:"郵便番号" %></td>
+              <td class="w-40 p-2"><label for="inputName">郵便番号</label></td>
+              <td class="pl-5"><%= f.text_field :postal_code, autofocus: true, id:"@customer", placeholder:"郵便番号" %></td>
             </tr>
 
             <tr>
-              <td><label for="inputName">住所</label></td>
-              <td><%= f.text_field :address, autofocus: true, id:"@customer", placeholder:"住所" %></td>
+              <td class="w-40 p-2"><label for="inputName">住所</label></td>
+              <td class="pl-5"><%= f.text_field :address, autofocus: true, id:"@customer", placeholder:"住所" %></td>
             </tr>
 
             <tr>
-              <td><label for="inputName">電話番号</label></td>
-              <td><%= f.text_field :telephone_number, autofocus: true, id:"@customer", placeholder:"電話番号" %></td>
+              <td class="w-40 p-2"><label for="inputName">電話番号</label></td>
+              <td class="pl-5"><%= f.text_field :telephone_number, autofocus: true, id:"@customer", placeholder:"電話番号" %></td>
             </tr>
 
             <tr>
-              <td><label for="inputName">メールアドレス</label></td>
-              <td><%= f.text_field :email, autofocus: true, id:"@customer", placeholder:"メールアドレス" %></td>
+              <td class="w-40 p-2"><label for="inputName">メールアドレス</label></td>
+              <td class="pl-5"><%= f.text_field :email, autofocus: true, id:"@customer", placeholder:"メールアドレス" %></td>
             </tr>
         </table>
-
-         <div>
-          <%= f.submit "変更を保存する", class: "btn-success p-3 m-5 rounded" %>
-        </div>
-
+        <%= f.submit "変更を保存する", class: "btn-success p-3 m-5 rounded" %>
         <% end %>
-        </div>
-
-
-  </div>
+      <div>
+    </div>
 </div>
 
