@@ -9,7 +9,6 @@
         <div class="col-12">
 
      <body>
-        <%= form_with model: @customer, method: :patch, url: edit_admin_customer_path(@customer) do |f| %>
         <table class="mt-5 w-50 text-left">
             <tr>
                 <td class="pl-5 p-2">会員ID</td>
@@ -44,13 +43,13 @@
 
          <div class="mt-5 p-10 w-15 m-5 p-5">
         <tr>
-            <%= f.submit "編集する", class: "btn-success p-3 rounded" %>
+            <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn-success p-3 rounded" %>
         </tr>
         <tr>
-            <%= f.submit "注文履歴一覧を見る", class: "btn-success p-3 rounded" %>
+            <%= link_to "注文履歴一覧を見る", edit_admin_customer_path(@customer), class: "btn-success p-3 rounded" %>
         </tr>
          </div>
-        <% end %>
+
     </body>
 
  </div>
