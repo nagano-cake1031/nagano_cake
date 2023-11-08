@@ -4,4 +4,6 @@ class CartItem < ApplicationRecord
     item.with_tax_price * amount
   end
 
+  belongs_to :item
+
 end

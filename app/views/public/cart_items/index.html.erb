@@ -12,34 +12,33 @@
       <td></td>
     </tr>
 
-
+     <%= @cart_items.each do |cart_item| %>
     <tr>
       <td>
-         <%#= link_to item_path(item.id) do %>
-         <%#= image_tag item.image, :size =>'100x50' %>
-         <%= @item.name %>
+         <%= image_tag cart_item.item.image, :size =>'100x50' %>
+         <%= cart_item.item.name %>
       </td>
-      <td><%= @item.price %></td>
+      <td><%= cart_item.item.price %></td>
 
-
-      <%= @cart_items.each do |cart_item| %>
       <td><%= cart_item.item.with_tax_price %></td>
       <td><%= cart_item.subtotal %></td>
       <% @合計金額 += cart_item.subtotal %>
     </tr>
-      <% end %>
-
-    <tr>
-      <td>合計金額</td>
-      <td><%= @cart_item.amount %></td>
-    </tr>
-
     <tr>
       <td>
-        <% if @cart_item.user == current_user %>
-      <% link_to "削除”,
+        <% if cart_item.user == current_user %>
+        <%= link_to "削除する", cart_items_path(@cart_item), method: :delete %>
+        <% end %>
       </td>
     </tr>
+    <% end %>
+
+    <div class="row">
+    <tr>
+      <td>合計金額</td>
+      <td><%#= @cart_item.amount %></td>
+    </tr>
+    </div>
 
   </div>
 </div>
