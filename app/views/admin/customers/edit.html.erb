@@ -1,7 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="mt-5 pl-5 bg-warning col-4">
+        <div class="mt-5 pl-5 bg-warning col-5">
+          <%= form_with model: @customer do |f| %>
           <h5><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h5>
+          <% end %>
         </div>
     </div>
 
