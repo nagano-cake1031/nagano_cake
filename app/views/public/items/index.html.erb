@@ -2,11 +2,13 @@
   <div class="row">
 
     <table>
-      <div class="mt-5 pl-5 bg-warning mb-5 font-weight-bold text-center ">
+      <div class="mt-5 pl-5 bg-warning mb-5 font-weight-bold col-5">
         <h5>商品一覧</h5>
       </div>
     </table>
+    </div>
 
+    <div class="row">
     <tbody>
       <table class="col-12 .justify-content-around d-flex justify-content-center ">
        <% @items.each do |item| %>
@@ -26,6 +28,7 @@
       <% end %>
       </table>
     </tbody>
+    </div>
 
   </div>
 </div>
