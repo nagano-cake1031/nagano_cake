@@ -21,6 +21,10 @@
 
       <tr>
         <td>
+          <%= item.hidden_field :amount, :value => "個数選択" %>
+          <%= item.select :amount, *[1..10] %>
+        </td>
+        <td>
           <%= item.submit "カートに入れる", class: "btn-success p-2 round" %>
           <% end %>
         </td>
