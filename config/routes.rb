@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     patch '/customers/my_page' => "/customers#update", as: 'my_page_edit'
     get '/customers/orders' => "/orders#index"
     get '/customers/cart_items' => "/cart_items#index"
+    post '/cart_items/:id' => "cart_items#show"
     get '/customers/withdraw_confirmation' => "/customers#withdraw_confirmation"
     patch '/customers/withdraw' => "/customers#withdraw"
   end
