@@ -12,7 +12,7 @@
       <td></td>
     </tr>
 
-     <%= @cart_items.each do |cart_item| %>
+     <% @cart_items.each do |cart_item| %>
     <tr>
       <td>
          <%= image_tag cart_item.item.image, :size =>'100x50' %>
@@ -22,22 +22,24 @@
 
       <td><%= cart_item.item.with_tax_price %></td>
       <td><%= cart_item.subtotal %></td>
-      <% @合計金額 += cart_item.subtotal %>
+      <% @sum += cart_item.subtotal %>
     </tr>
     <tr>
+      <% end %>
       <td>
-        <% if cart_item.user == current_user %>
-        <%= link_to "削除する", cart_items_path(@cart_item), method: :delete %>
+
+        <% if @cart_items == current_customer %>
+        <%= link_to "削除する", cart_items_path(@cart_item), method: :delete, class: "btn btn-danger" %>
         <% end %>
       </td>
     </tr>
-    <% end %>
+
     </div>
 
     <div class="row">
     <tr>
       <td>合計金額</td>
-      <td><%#= @cart_item.amount %></td>
+      <td><%= @sum %></td>
     </tr>
     </div>
 

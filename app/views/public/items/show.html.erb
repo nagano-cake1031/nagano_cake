@@ -1,14 +1,15 @@
 <div class="container">
   <div class="row">
 
-    <div class="mt-5 col-6">
-       <%= form_with model: @cart_item, method: :post, url: cart_items_path do |f| %>
-
-      <p><%= image_tag @item.image, :size =>'400x200' %></p>
-    </div>
-
-      <table class="col-6">
-
+        <td>
+          <%= image_tag @item.image, :size =>'400x200' %>
+        </td>
+      </th>
+  </div>
+      
+      <%= form_with model: @cart_item, method: :post, url: cart_items_path do |f| %>
+       <%= f.hidden_field :item_id, :value => @item.id %>
+      <div class="col-12">
       <tr>
       <td><%= @item.name %></td>
       </tr>
@@ -18,7 +19,7 @@
        <tr>
       <td>￥<%= @item.price %>(税込)</td>
       </tr>
-
+      
       <tr>
         <td>
           <%= f.select :amount, *[1..10], class: "w-10", include_blank: "個数選択" %>
@@ -26,7 +27,5 @@
           <% end %>
         </td>
       </tr>
-
-    </table>
   </div>
 </div>
