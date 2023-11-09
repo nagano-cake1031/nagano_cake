@@ -21,10 +21,8 @@
 
       <tr>
         <td>
-          <%= f.select :amount, *[1..10], class: "w-10", include_blank: "個数選択"%>
-        </td>
-        <td>
-          <%= f.submit "カートに入れる", class: "btn-success p-2 round" %>
+          <%= f.select :amount, *[1..10], class: "w-10", include_blank: "個数選択" %>
+          <%= f.submit "カートに入れる", class: "btn-success p-2 rounded ml-5" %>
           <% end %>
         </td>
       </tr>
