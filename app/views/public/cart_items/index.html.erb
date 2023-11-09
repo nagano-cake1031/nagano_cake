@@ -4,40 +4,38 @@
     <h5>ショッピングカート</h5>
     </div>
 
-    <table class="col-10 mt-5 border">
+    <table class="mt-5 border w-100">
     <tr>
       <th></th>
-      <th>商品名</th>
-      <th>単価(税込)</th>
-      <th>数量</th>
-      <th>小計</th>
+      <th class="py-3">商品名</th>
+      <th class="py-3">単価(税込)</th>
+      <th class="py-3">数量</th>
+      <th class="py-3">小計</th>
     </tr>
     <table>
 
-
+  <table class="w-100">
     <% @cart_items.each do |cart_item| %>
     <tr>
-      <td><%= image_tag cart_item.item.image, :size =>'150x80' %></td>
-      <td><%= cart_item.item.name %></td>
+      <td>
+        <%= image_tag cart_item.item.image, :size =>'150x80', class: "mr-3" %>
+        <%= cart_item.item.name %>
+      </td>
       <td><%= cart_item.item.price %></td>
       <td><%= cart_item.item.with_tax_price %></td>
       <td><%= cart_item.subtotal %></td>
       <td><% @sum += cart_item.subtotal %></td>
-      <td><% if cart_item.item == current_customer %>
-          <%= link_to "削除する", cart_items_path(@cart_item), method: :delete, class: "btn btn-danger" %>
-          <% end %>
-      </td>
+      <td><%= link_to "削除する", cart_items_path(@cart_item), method: :delete, class: "btn btn-danger" %></td>
     </tr>
     <% end %>
+  </table>
 
-
-
-    <table class="mt-5">
+      <table>
       <tr>
-      <td class="pr-4">合計金額</td>
-      <td><%= @sum %></td>
+      <td class="border pr-5 text-right p-3">合計金額</td>
+      <td class="border text-right p-3"><%= @sum %></td>
      </tr>
-    </table>
+      </table>
 
   </div>
 </div>
