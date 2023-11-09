@@ -2,7 +2,7 @@
   <div class="row">
 
     <div class="mt-5 col-6">
-       <%= form_with model: @item, method: :post, url: cart_items_path do |item| %>
+       <%= form_with model: @cart_item, method: :post, url: cart_items_path do |f| %>
 
       <p><%= image_tag @item.image, :size =>'400x200' %></p>
     </div>
@@ -21,12 +21,10 @@
 
       <tr>
         <td>
-          <%= item.hidden_field :title, :value => "個数選択" %>
-          <%= item.label:amount , "個数選択" %>
-          <%= item.select :amount, *[1..10], class: "w-10" %>
+          <%= f.select :amount, *[1..10], class: "w-10", include_blank: "個数選択"%>
         </td>
         <td>
-          <%= item.submit "カートに入れる", class: "btn-success p-2 round" %>
+          <%= f.submit "カートに入れる", class: "btn-success p-2 round" %>
           <% end %>
         </td>
       </tr>
