@@ -4,8 +4,7 @@
     <h5>ショッピングカート</h5>
     </div>
 
-
-    <table class="col-12 mt-5">
+    <table class="col-10 mt-5 border">
     <tr>
       <th></th>
       <th>商品名</th>
@@ -13,6 +12,8 @@
       <th>数量</th>
       <th>小計</th>
     </tr>
+    <table>
+
 
     <% @cart_items.each do |cart_item| %>
     <tr>
@@ -26,8 +27,10 @@
           <%= link_to "削除する", cart_items_path(@cart_item), method: :delete, class: "btn btn-danger" %>
           <% end %>
       </td>
-       <% end %>
-    </table>
+    </tr>
+    <% end %>
+
+
 
     <table class="mt-5">
       <tr>
@@ -35,10 +38,6 @@
       <td><%= @sum %></td>
      </tr>
     </table>
-
-
-
-
 
   </div>
 </div>
