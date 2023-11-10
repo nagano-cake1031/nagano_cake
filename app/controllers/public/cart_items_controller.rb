@@ -21,7 +21,7 @@ class Public::CartItemsController < ApplicationController
 
   def destry
     @cart_item = cart_item.find(params[:id])
-    @cart_item.destroy
+    @cart_item.item.destroy
     redirect_to cart_items_path
   end
 
