@@ -3,39 +3,51 @@
     <div class="col-5">
     <h5>ショッピングカート</h5>
     </div>
-
+  </div>
+  <div class="row">
     <table class="mt-5 border w-100">
+    <thead>
     <tr>
-      <th></th>
-      <th class="py-3">商品名</th>
-      <th class="py-3">単価(税込)</th>
-      <th class="py-3">数量</th>
-      <th class="py-3">小計</th>
+      <th class="py-3 border">商品名</th>
+      <th class="py-3 border">単価(税込)</th>
+      <th class="py-3 border">数量</th>
+      <th class="py-3 border">小計</th>
+      <th colspan="3"></th>
     </tr>
-    <table>
-
-  <table class="w-100">
+    </thead>
+    <tbody>
     <% @cart_items.each do |cart_item| %>
     <tr>
-      <td>
+      <td class="border">
         <%= image_tag cart_item.item.image, :size =>'150x90', class: "mr-3" %>
         <%= cart_item.item.name %>
       </td>
-      <td><%= cart_item.item.price %></td>
-      <td><%= cart_item.item.with_tax_price %></td>
-      <td><%= cart_item.subtotal %></td>
+      <td class="border"><%= cart_item.item.with_tax_price %></td>
+      <td class="border">
+          <%= form_with model: @cart_item, method: :update, url: cart_items_path(cart_item) do |f| %>
+          <%= f.select :amount, *[1..10], include_blank: "数量" %>
+          <%= f.submit "変更", class: "btn-success p-1 rounded ml-1" %>
+          <% end %>
+      </td>
+      <td class="border"><%= cart_item.subtotal %></td>
       <td><% @sum += cart_item.subtotal %></td>
-      <td><%= link_to "削除する", cart_items_path(@cart_item), method: :delete, class: "btn btn-danger" %></td>
+      <td><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %></td>
     </tr>
     <% end %>
+    </tbody>
   </table>
-
-      <table>
-      <tr>
-      <td class="border pr-5 text-right p-3">合計金額</td>
-      <td class="border text-right p-3"><%= @sum %></td>
-     </tr>
-      </table>
-
   </div>
+
+    <div class="row">
+      <div class="col-8 mt-5">買い物を続ける</div>
+       <div class="col-4 align-self-end">
+        <table class="table table-hover table-inverse text-center">
+         <tr>
+          <td class="border p-3">合計金額</td>
+          <td class="border p-3"><%= @sum %></td>
+         </tr>
+        </table>
+       </div>
+    </div>
+
 </div>
