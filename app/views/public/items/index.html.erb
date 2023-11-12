@@ -2,33 +2,37 @@
   <div class="row">
 
     <table>
-      <div class="mt-5 pl-5 alert-secondary mb-5 font-weight-bold col-5">
+      <div class="mt-5 pl-5 alert-secondary mb-5 font-weight-bold col-2">
         <h5>商品一覧</h5>
       </div>
     </table>
     </div>
 
     <div class="row">
-    <tbody>
-      <table class="col-12 .justify-content-around d-flex justify-content-center ">
-       <% @items.each do |item| %>
-       <tr>
-           <td>
-            <%= link_to item_path(item.id) do %>
-          　<%= image_tag item.image, :size =>'200x100' %>
-          　<% end %>
-           </td>
-       </tr>
-       <tr>
-         　<td><%= link_to item.name, item_path(item.id) %></td>
-       </tr>
-       <tr>
-         　<td>￥<%= item.price %></td>
-       </tr>
-      <% end %>
+    <% @items.each do |item| %>
+      <table>
+        <thead>
+           <tr>
+               <th>
+                <%= link_to item_path(item.id) do %>
+          　     <%= image_tag item.image, :size =>'200x100' %>
+          　     <% end %>
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+           <tr>
+         　    <th><%= link_to item.name, item_path(item.id) %></th>
+           </tr>
+           <tr>
+         　    <th>￥<%= item.price %></th>
+           </tr>
+         </tbody>
       </table>
-    </tbody>
-    </div>
+     <% end %>
 
-  </div>
+     <footer class="pl-5 pt-5 pb-5 mx-auto">
+        <%= paginate @item %>
+    </footer>
+    </div>
 </div>
