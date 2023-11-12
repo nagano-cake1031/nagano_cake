@@ -24,7 +24,7 @@
       </td>
       <td class="border"><%= cart_item.item.with_tax_price %></td>
       <td class="border">
-          <%= form_with model: @cart_item, method: :update, url: cart_items_path(cart_item) do |f| %>
+          <%= form_with model: cart_item, method: :patch, url: cart_item_path(cart_item) do |f| %>
           <%= f.select :amount, *[1..10], include_blank: "数量" %>
           <%= f.submit "変更", class: "btn-success p-1 rounded ml-1" %>
           <% end %>
