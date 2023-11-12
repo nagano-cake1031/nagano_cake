@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-5">
+    <div class="col-3 alert-secondary text-center">
     <h5>ショッピングカート</h5>
     </div>
   </div>
@@ -8,10 +8,10 @@
     <table class="mt-5 border w-100">
     <thead>
     <tr>
-      <th class="py-3 border">商品名</th>
-      <th class="py-3 border">単価(税込)</th>
-      <th class="py-3 border">数量</th>
-      <th class="py-3 border">小計</th>
+      <th class="py-3 border alert-secondary">商品名</th>
+      <th class="py-3 border alert-secondary">単価(税込)</th>
+      <th class="py-3 border alert-secondary">数量</th>
+      <th class="py-3 border alert-secondary">小計</th>
       <th colspan="3"></th>
     </tr>
     </thead>
@@ -39,11 +39,11 @@
   </div>
 
     <div class="row">
-      <div class="col-8 mt-5">買い物を続ける</div>
+      <div class="col-8 mt-5"><%=link_to "買い物を続ける", items_path, class: "btn btn-primary" %></div>
        <div class="col-4 align-self-end">
         <table class="table table-hover table-inverse text-center">
          <tr>
-          <td class="border p-3">合計金額</td>
+          <td class="border p-3 alert-secondary">合計金額</td>
           <td class="border p-3"><%= @sum %></td>
          </tr>
         </table>
