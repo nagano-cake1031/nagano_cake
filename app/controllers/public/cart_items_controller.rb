@@ -39,5 +39,11 @@ class Public::CartItemsController < ApplicationController
     params.require(:cart_item).permit(:item_id, :amount, :customer_id)
   end
 
+  def cart_item_state
+    @cart_item = Item.find_by(item: params[:name])
+    return if item.nil?
+    return unless item.valid_name?(params[:name])
+  end
+
 
 end
