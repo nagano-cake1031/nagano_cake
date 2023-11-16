@@ -17,6 +17,7 @@ def check
  @order = Order.new
  @sum = 0
  @postage = 800
+ @amount = 0
 end
 
 def index
