@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :customers, only: [:show, :edit, :update]
     resources :cart_items, only: [:index, :update, :create, :destroy, :update]
+    resources :orders, only: [:index, :new, :show]
+    post '/orders/check' => "orders#check"
+    get '/orders/complete' => "orders#complete"
+    post '/orders' => "orders#create", as: 'orders_create'
     delete '/cart_items/destroy_all' => "cart_items#destroy_all"
     get '/customers/my_page' => "/customers#show"
     get '/customers/my_page/edit' => "/customers#edit"
