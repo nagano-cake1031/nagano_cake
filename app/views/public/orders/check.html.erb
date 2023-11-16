@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2 alert-secondary text-center">
+    <h5>注文情報確認</h5>
+    </div>
+  </div>
+  <div class="row">
+    <table class="mt-5 border w-100 col-9">
+    <thead>
+    <tr>
+      <th class="py-3 border alert-secondary">商品名</th>
+      <th class="py-3 border alert-secondary">単価(税込)</th>
+      <th class="py-3 border alert-secondary">数量</th>
+      <th class="py-3 border alert-secondary">小計</th>
+      <th class="colspan-3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @cart_items.each do |cart_item| %>
+    <tr>
+      <td class="border">
+        <%= image_tag cart_item.item.image, :size =>'90x50', class: "mr-3" %>
+        <%= cart_item.item.name %>
+      </td>
+      <td class="border"><%= cart_item.item.with_tax_price %></td>
+      <td class="border">
+          <%= form_with model: cart_item, method: :patch, url: cart_item_path(cart_item) do |f| %>
+          <%= cart_item.amount %>
+          <% end %>
+      </td>
+      <td class="border"><%= cart_item.subtotal %></td>
+      <td><% @sum = @sum + cart_item.subtotal %></td>
+      <% end %>
+    </tr>
+    </tbody>
+    </table>
+
+    <div class="col-2 mt-5 py-3">
+      <table>
+        <tr>
+          <th>送料</th>
+          <td><%= @postage %></td>
+        </tr>
+      <tr>
+        <th>商品合計</th>
+        <td><%= @postage %></td>
+      </tr>
+      <tr>
+        <th>請求金額</th>
+        <td><%= @sum + @postage %></td>
+      </tr>
+
+      </table>
+    </div>
+
+
+  </div>
+
+
+    <div class="row">
+      <div class="col-8 mt-5"><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></div>
+       <div class="col-4 align-self-end">
+        <table class="table table-hover table-inverse text-center">
+         <tr>
+          <td class="border p-3 alert-secondary">合計金額</td>
+          <td class="border p-3"><%= @sum %></td>
+         </tr>
+        </table>
+       </div>
+    </div>
+
+</div>

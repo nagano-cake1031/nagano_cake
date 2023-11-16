@@ -12,6 +12,13 @@ def create
  redirect_to orders_check_path
 end
 
+def check
+ @cart_items = current_customer.cart_items
+ @order = Order.new
+ @sum = 0
+ @postage = 800
+end
+
 def index
 end
 
@@ -21,7 +28,7 @@ end
 private
 
 def order_params
- params.require(:order).permit(:postal_code, :address, :name)
+ params.require(:order).permit(:postal_code, :address, :name, :item_id, :amount, :customer_id)
 end
 
 end
