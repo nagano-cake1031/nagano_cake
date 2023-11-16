@@ -21,7 +21,7 @@ end
 private
 
 def order_params
- params.require(:customer_id).permit(:postal_code, :address, :name)
+ params.require(:order).permit(:postal_code, :address, :name)
 end
 
 end

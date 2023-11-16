@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-3 alert-secondary text-center">
+    <div class="col-2 alert-secondary text-center">
     <h5>注文情報入力</h5>
     </div>
   </div>
@@ -9,8 +9,9 @@
       <thead>
         <td class="font-weight-bold">支払方法</td>
       </thead>
-      <%= form_with model: @order do |f| %>
+       <%= form_with model: @order, url: orders_check_path do |f| %>
       <tbody>
+
         <tr>
           <td class="pt-2">
           <%= f.radio_button :payment_method, "credit_card" %>
@@ -23,22 +24,28 @@
           <%= f.label :payment_method_transfer, "銀行振込" %>
           </td>
         </tr>
-
       </tbody>
+
       <thead>
         <tr>
-          <td class="font-weight-bold">お届け先</td>
+          <td class="font-weight-bold pt-2">お届け先</td>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>
+          <td class="pt-2">
            <%= @customer.address_display %>
           </td>
         </tr>
       </tbody>
-       <% end %>
 
-
+      <div class="row">
+      <tfooter>
+        <tr>
+          <td><%= f.submit "確認画面へ進む", class: "btn btn-primary round mt-5" %></td>
+        </tr>
+      </tfooter>
+      </div>
+      <% end %>
   </div>
 
