@@ -6,22 +6,39 @@
   </div>
   <div class="row">
     <table class="mt-5 w-100">
-    <thead>
-      <tr>
-        <td>支払方法</td>
-        <%= form_with model: @order do |f| %>
-        <%= f.radio_button :payment_method, "credit_card" %>
-        <%= f.label :payment_method_credit_card, "クレジットカード" %>
-        <%= f.radio_button :payment_method, "transfer" %>
-        <%= f.label :payment_method_transfer, "銀行振込" %>
-        <% end %>
-      </tr>
+      <thead>
+        <td class="font-weight-bold">支払方法</td>
+      </thead>
+      <%= form_with model: @order do |f| %>
+      <tbody>
+        <tr>
+          <td class="pt-2">
+          <%= f.radio_button :payment_method, "credit_card" %>
+          <%= f.label :payment_method_credit_card, "クレジットカード" %>
+          </td>
+        </tr>
+        <tr>
+          <td class="pt-2">
+          <%= f.radio_button :payment_method, "transfer" %>
+          <%= f.label :payment_method_transfer, "銀行振込" %>
+          </td>
+        </tr>
 
-      <tr>
-        <td>お届け先</td>
-      </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <td class="font-weight-bold">お届け先</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+           <%= @customer.address_display %>
+          </td>
+        </tr>
+      </tbody>
+       <% end %>
 
 
-    </thead>
   </div>
 
