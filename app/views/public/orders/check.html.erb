@@ -40,15 +40,15 @@
       <table>
         <tr>
           <th class="py-3 alert-secondary pr-5">送料</th>
-          <td class="pl-1 border pr-5"><%= @postage %></td>
+          <td class="pl-1 border pr-5"><%= @order.postage %></td>
         </tr>
       <tr>
         <th class="py-3 alert-secondary pr-5">商品合計</th>
-        <td class="pl-1 border pr-5"><%= @amount %></td>
+        <td class="pl-1 border pr-5"><%= @sum %></td>
       </tr>
       <tr>
         <th class="py-3 alert-secondary pr-5">請求金額</th>
-        <td class="pl-1 border pr-5"><%= @sum + @postage %></td>
+        <td class="pl-1 border pr-5"><%= @sum + @order.postage %></td>
       </tr>
 
       </table>
@@ -57,14 +57,24 @@
   </div>
 
     <div class="row">
-      <div class="col-8 mt-5"><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></div>
-       <div class="col-4 align-self-end">
-        <table class="table table-hover table-inverse text-center">
-         <tr>
-          <td class="border p-3 alert-secondary">合計金額</td>
-          <td class="border p-3"><%= @sum %></td>
-         </tr>
+
+      <div class="col-10 mt-5 pl-5">
+        <table>
+        <tr>
+          <th>支払方法</th>
+          <td><%= @order.payment_method %></td>
+        </tr>
+        <tr>
+          <th>お届け先</th>
+          <td><%= @order.post_code + @order.address + @order.name  %></td>
+        </tr>
         </table>
+        <%= form_with model: @order do |f| %>
+        <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+        
+        <% end %>
+      </div>
+
        </div>
     </div>
 

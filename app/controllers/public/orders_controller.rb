@@ -14,13 +14,17 @@ end
 
 def check
  @cart_items = current_customer.cart_items
- @order = Order.new
+ @order = Order.new(order_params)
+ @order.customer_id = current_customer.id
+ @order.postage = 800
+ @order.address = current_customer.address
+ @order.post_code = current_customer.postal_code
+ @order.name = current_customer.last_name + " " + current_customer.first_name
+ # @order.pay_method = current_customer.pay_method
  @sum = 0
- @postage = 800
- @amount = 0
 end
 
-def index
+def dex
 end
 
 def show
@@ -29,7 +33,7 @@ end
 private
 
 def order_params
- params.require(:order).permit(:postal_code, :address, :name, :item_id, :amount, :customer_id)
+ params.require(:order).permit(:payment_method, :customer_id, :id, :total_price)
 end
 
 end
