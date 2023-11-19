@@ -71,7 +71,13 @@
         </table>
         <%= form_with model: @order do |f| %>
         <%= f.hidden_field :payment_method, :value => @order.payment_method %>
-        
+        <%= f.hidden_field :postage, :value => @order.postage %>
+        <%= f.hidden_field :address, :value => @order.address %>
+        <%= f.hidden_field :post_code, :value => @order.post_code %>
+        <%= f.hidden_field :name, :value => @order.name %>
+        <%= f.hidden_field :customer_id, :value => @order.customer_id %>
+        <%= f.hidden_field :total_price, :value => (@sum + @order.postage) %>
+        <%= f.submit "注文を確定する", class: "btn-success p-3 rounded" %>
         <% end %>
       </div>
 

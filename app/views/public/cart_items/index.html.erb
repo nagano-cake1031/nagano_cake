@@ -39,7 +39,7 @@
   </div>
 
     <div class="row">
-      <div class="col-8 mt-5"><%=link_to "買い物を続ける", items_path, class: "btn btn-primary" %></div>
+      <div class="col-8 mt-5"><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></div>
        <div class="col-4 align-self-end">
         <table class="table table-hover table-inverse text-center">
          <tr>
@@ -48,6 +48,14 @@
          </tr>
         </table>
        </div>
+    </div>
+
+    <div class="row">
+      <div class="mt-5">
+      <%= form_with model: @cart_items, method: :get, url: new_order_path do |f| %>
+      <%= f.submit "情報入力へ進む", class: "btn-success p-3 rounded" %>
+      <% end %>
+      </div>
     </div>
 
 </div>

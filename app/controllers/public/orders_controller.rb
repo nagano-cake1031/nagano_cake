@@ -8,8 +8,19 @@ end
 def create
  @order = Order.new(order_params)
  @order.customer_id = current_customer.id
- @order.save
- redirect_to orders_check_path
+ if @order.save
+ @cart_item = current_customer.cart_items
+ @cart_item.each do |cart_item|
+ @order_detail = OrderDetail.new
+ @order_detail.item_id = cart_item.item_id
+ @order_detail.order_id = @order.id
+ @order_detail.amount = cart_item.amount
+ @order_detail.price = (cart_item.item.price*1.08).floor
+ @order_detail.save
+ end
+ @cart_item.destroy_all
+ redirect_to orders_complete_path
+ end
 end
 
 def check
@@ -24,7 +35,10 @@ def check
  @sum = 0
 end
 
-def dex
+def complete
+end
+
+def index
 end
 
 def show
@@ -33,7 +47,7 @@ end
 private
 
 def order_params
- params.require(:order).permit(:payment_method, :customer_id, :id, :total_price)
+ params.require(:order).permit(:payment_method, :customer_id, :total_price, :postage, :address, :post_code, :name)
 end
 
 end
