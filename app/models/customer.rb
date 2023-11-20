@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cart_items, dependent: :destroy
+  has_many :order_detail, dependent: :destroy
 
   def address_display
   '〒' + postal_code + ' ' + address + ' ' + last_name + ' ' + first_name

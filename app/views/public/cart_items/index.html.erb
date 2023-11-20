@@ -50,12 +50,12 @@
        </div>
     </div>
 
-    <div class="row">
-      <div class="mt-5">
+
+      <footer class="mt-5">
       <%= form_with model: @cart_items, method: :get, url: new_order_path do |f| %>
-      <%= f.submit "情報入力へ進む", class: "btn-success p-3 rounded" %>
+      <%= f.submit "情報入力に進む", class: "btn-success p-3 rounded justify-content-center" %>
       <% end %>
-      </div>
-    </div>
+      </footer>
+
 
 </div>
