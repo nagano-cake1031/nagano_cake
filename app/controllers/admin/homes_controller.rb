@@ -1,9 +1,9 @@
 class Admin::HomesController < ApplicationController
 
   def top
-    @order_details = OrderDetail.all
     # @order.name = current_customer.last_name + " " + current_customer.first_name
-    @order_detail = OrderDetail.page(params[:page])
+    @order = Order.page(params[:page])
+    @sum = 0
   end
 
   private

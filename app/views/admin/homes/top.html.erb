@@ -15,12 +15,16 @@
         </tr>
       </thead>
 
-      <% @order_details.each do |order_detail| %>
+      <% @order.each do |order| %>
       <tbody>
         <tr>
-          <td class="py-2 border-top border-bottom"><%= order_detail.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-          <td class="py-2 border-top  border-bottom"><%= order_detail.order_id %></td>
-          <td class="py-2 border-top  border-bottom"><%= order_detail.amount %></td>
+          <td class="py-2 border-top border-bottom"><%= order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+          <td class="py-2 border-top  border-bottom"><%= order.customer.last_name %><%= order.customer.first_name %></td>
+          <% @sum = 0 %>
+          <% order.order_details.each do |order_detail| %>
+          <% @sum = @sum + order_detail.amount %>
+          <% end %>
+          <td class="py-2 border-top  border-bottom"><%= @sum %></td>
         </tr>
       </tbody>
       <% end %>
@@ -30,7 +34,7 @@
     <div class="row">
       <table>
        <footer class="pl-5 pt-5 pb-5 mx-auto">
-        <%= paginate @order_detail %>
+        <%= paginate @order %>
       </footer>
       </table>
     </div>
