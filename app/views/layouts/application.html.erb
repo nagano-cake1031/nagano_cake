@@ -24,6 +24,15 @@
       <div class="text-right pr-5">
         <% if admin_signed_in? %>
           <tr>
+            <td> <%= link_to "商品一覧", admin_items_path, class: "border border-2 rounded p-2 m-3" %></td>
+          </tr>
+          <tr>
+            <td> <%= link_to "会員一覧", admin_customers_path, class: "border border-2 rounded p-2 m-3" %></td>
+          </tr>
+          <tr>
+            <td> <%= link_to "注文履歴一覧", admin_root_path, class: "border border-2 rounded p-2 m-3" %></td>
+          </tr>
+          <tr>
             <td> <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "border border-2 rounded p-2 m-3" %></td>
           </tr>
         <% elsif customer_signed_in? %>

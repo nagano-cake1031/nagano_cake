@@ -33,13 +33,13 @@
 
     <div class="row">
 
-      <table class="col-7">
+      <table class="col-8 border-top border-bottom">
         <thead>
         <tr>
-          <td class="py-3 border alert-secondary">商品名</td>
-          <td class="py-3 border alert-secondary">単価(税込)</td>
-          <td class="py-3 border alert-secondary">数量</td>
-          <td class="py-3 border alert-secondary">小計</td>
+          <td class="py-3 alert-secondary">商品名</td>
+          <td class="py-3 alert-secondary">単価(税込)</td>
+          <td class="py-3 alert-secondary">数量</td>
+          <td class="py-3 alert-secondary">小計</td>
         </tr>
         </thead>
         <tbody>
@@ -54,23 +54,21 @@
         </tbody>
       </table>
 
-      <div class="col-4 pt-5 text-right">
-        <table class="mt-5 w-100 col-4 mb-4 float-right">
+        <table class="mt-5 col-2 ml-5">
             <tr>
               <% @sum = @order.total_price - @order.postage %>
-              <td class="py-2 font-weight-bold text-left">商品合計</td>
+              <td class="py-1 font-weight-bold">商品合計</td>
               <td class="text-right"><%= @sum %>円</td>
             </tr>
             <tr>
-              <td class="py-2 font-weight-bold text-left">送料</td>
+              <td class="py-1 font-weight-bold">送料</td>
               <td class="text-right"><%= @order.postage %>円</td>
             </tr>
             <tr>
-              <td class="py-2 font-weight-bold text-left">請求金額合計</td>
-              <td class="font-weight-bold"><%= @order.total_price %>円</td>
+              <td class="py-1 font-weight-bold">請求金額合計</td>
+              <td class="font-weight-bold text-right"><%= @order.total_price %>円</td>
             </tr>
             </table>
-        </div>
       </div>
   </div>
 </div>
