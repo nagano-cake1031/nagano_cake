@@ -5,22 +5,22 @@
     </div>
   </div>
   <div class="row">
-    <table class="mt-5 w-100 col-8">
+    <table class="mt-5 w-100 col-8 mb-4">
     <thead>
     <tr>
-      <td class="py-2">購入者</td>
+      <td class="py-2 font-weight-bold">購入者</td>
       <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
     </tr>
     <tr>
-       <td class="py-2">注文日</td>
+       <td class="py-2 font-weight-bold">注文日</td>
       <td><%= @order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
     </tr>
     <tr>
-      <td class="py-2">配送先</td>
-      <td><%= @order.customer.postal_code %><%= @order.customer.address %><%= @order.name %></td>
+      <td class="py-2 font-weight-bold">配送先</td>
+      <td class="pr-2">〒<%= @order.customer.postal_code %> <%= @order.customer.address %> <%= @order.name %></td>
     </tr>
     <tr>
-      <td class="py-2">支払方法</td>
+      <td class="py-2 font-weight-bold">支払方法</td>
       <td><%= @order.payment_method %></td>
     </tr>
     </thead>
@@ -30,3 +30,27 @@
     </tr>
     </table>
     </div>
+
+    <div="row">
+      <table class="col-8">
+        <thead>
+        <tr>
+          <td class="py-3 border alert-secondary">商品名</td>
+          <td class="py-3 border alert-secondary">単価(税込)</td>
+          <td class="py-3 border alert-secondary">数量</td>
+          <td class="py-3 border alert-secondary">小計</td>
+        </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+          <tr>
+            <td class="py-3"><%= cart_item.item.name %></td>
+            <td class="py-3"><%= cart_item.item.with_tax_price %></td>
+            <td class="py-3"><%= cart_item.amount %></td>
+            <td class="py-3"><%= cart_item.subtotal %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
