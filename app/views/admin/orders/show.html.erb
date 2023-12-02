@@ -31,8 +31,9 @@
     </table>
     </div>
 
-    <div="row">
-      <table class="col-8">
+    <div class="row">
+
+      <table class="col-7">
         <thead>
         <tr>
           <td class="py-3 border alert-secondary">商品名</td>
@@ -42,15 +43,35 @@
         </tr>
         </thead>
         <tbody>
-          <% @cart_items.each do |cart_item| %>
+          <% @order.order_details.each do |order_detail| %>
           <tr>
-            <td class="py-3"><%= cart_item.item.name %></td>
-            <td class="py-3"><%= cart_item.item.with_tax_price %></td>
-            <td class="py-3"><%= cart_item.amount %></td>
-            <td class="py-3"><%= cart_item.subtotal %></td>
+            <td class="py-3"><%= order_detail.item.name %></td>
+            <td class="py-3"><%= order_detail.item.with_tax_price %></td>
+            <td class="py-3"><%= order_detail.amount %></td>
+            <td class="py-3"><%= order_detail.subtotal_order_detail %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
-    </div>
+
+      <div class="col-4 pt-5 text-right">
+        <table class="mt-5 w-100 col-4 mb-4 float-right">
+            <tr>
+              <% @sum = @order.total_price - @order.postage %>
+              <td class="py-2 font-weight-bold text-left">商品合計</td>
+              <td class="text-right"><%= @sum %>円</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-weight-bold text-left">送料</td>
+              <td class="text-right"><%= @order.postage %>円</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-weight-bold text-left">請求金額合計</td>
+              <td class="font-weight-bold"><%= @order.total_price %>円</td>
+            </tr>
+            </table>
+        </div>
+      </div>
+  </div>
+</div>
 
