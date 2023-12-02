@@ -4,27 +4,29 @@
     <h5>注文履歴詳細</h5>
     </div>
   </div>
-
   <div class="row">
     <table class="mt-5 w-100 col-8">
     <thead>
     <tr>
       <td class="py-2">購入者</td>
-      <td></td>
+      <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
     </tr>
     <tr>
-      <td class="py-2">注文日</td>
-      <td></td>
+       <td class="py-2">注文日</td>
+      <td><%= @order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
     </tr>
     <tr>
       <td class="py-2">配送先</td>
-      <td></td>
+      <td><%= @order.customer.postal_code %><%= @order.customer.address %><%= @order.name %></td>
     </tr>
     <tr>
       <td class="py-2">支払方法</td>
-      <td></td>
+      <td><%= @order.payment_method %></td>
     </tr>
+    </thead>
+
     <tr>
        <td class="colspan-2"></td>
     </tr>
-    </thead>
+    </table>
+    </div>
