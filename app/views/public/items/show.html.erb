@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-
+    <div class="col-5 pt-5">
       <tr>
         <td>
           <%= image_tag @item.image, :size =>'400x200' %>
@@ -9,23 +9,30 @@
 
       <%= form_with model: @cart_item, method: :post, url: cart_items_path do |f| %>
       <%= f.hidden_field :item_id, :value => @item.id %>
+      </div>
 
+      <div class="col-6 pt-5">
+      <table>
+      <tbody>
       <tr>
-      <td><%= @item.name %></td>
+      <td class="font-weight-bold"><%= @item.name %></td>
       </tr>
       <tr>
       <td><%= @item.introduction %></td>
       </tr>
       <tr>
-      <td>￥<%= @item.price %>(税込)</td>
+      <td class="pt-5">￥<%= @item.price %>(税込)</td>
       </tr>
       <tr>
-        <td>
+        <td class="pt-3">
           <%= f.select :amount, *[1..10], class: "w-10", include_blank: "個数選択" %>
           <%= f.submit "カートに入れる", class: "btn-success p-2 rounded ml-5" %>
           <% end %>
         </td>
       </tr>
-
+      </tbody>
+      </table>
+      </div>
+      </div>
   </div>
 </div>
