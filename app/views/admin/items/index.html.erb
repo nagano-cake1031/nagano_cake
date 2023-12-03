@@ -7,7 +7,7 @@
        </table>
 
         <body>
-        <table class="mt-3 w-50 text-left table table-striped col-12">
+        <table class="my-3 w-50 text-left table table-striped col-12">
             <tr>
                 <th class="pl-5">商品ID</th>
                 <th class="col-5">商品名</th>
@@ -16,9 +16,9 @@
         </table>
 
         <% @items.each do |item| %>
-        <table class="mt-2 mb-2 w-50 text-left border-top col-12">
+        <table class="mt-2 mb-2 w-50 text-left border-bottom col-12">
             <tr>
-                <td class="pl-5 pt-2 pb-2 co1-3"><%= item.id %></td>
+                <td class="pl-5 pt-1 pb-2 col-2"><%= item.id %></td>
                 <td class="col-5 text-center"><%= link_to item.name, admin_item_path(item.id) %></td>
                 <td class="text-center col-6"><%= item.price %></td>
             </tr>
@@ -26,9 +26,12 @@
         <% end %>
         </body>
 
-        <footer class="pl-5 border-top pt-3 w-50 col-12 pb-5 text-center">
+        <div class="col-12">
+        <footer class="pl-5 pt-5 w-100 pb-5 text-center">
+         <%= link_to "新規商品登録", admin_items_new_path, class: "btn-success p-3 rounded" %>
         <%= paginate @items %>
         </footer>
+        </div>
   </div>
 </div>
 
