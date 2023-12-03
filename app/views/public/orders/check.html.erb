@@ -62,13 +62,18 @@
         <table>
         <tr>
           <th>支払方法</th>
-          <td><%= @order.payment_method %></td>
+          <td class="p-2"><%= @order.payment_method %></td>
         </tr>
         <tr>
           <th>お届け先</th>
-          <td><%= @order.post_code + @order.address + @order.name  %></td>
+          <td class="p-2">〒<%= @order.post_code + @order.address + @order.name  %></td>
         </tr>
         </table>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="col-12">
         <%= form_with model: @order do |f| %>
         <%= f.hidden_field :payment_method, :value => @order.payment_method %>
         <%= f.hidden_field :postage, :value => @order.postage %>
@@ -77,10 +82,9 @@
         <%= f.hidden_field :name, :value => @order.name %>
         <%= f.hidden_field :customer_id, :value => @order.customer_id %>
         <%= f.hidden_field :total_price, :value => (@sum + @order.postage) %>
-        <%= f.submit "注文を確定する", class: "btn-success p-3 rounded" %>
+        <%= f.submit "注文を確定する", class: "btn-success p-3 rounded mt-4 justify-content-center" %>
         <% end %>
-      </div>
-
+     </div>
        </div>
     </div>
 
