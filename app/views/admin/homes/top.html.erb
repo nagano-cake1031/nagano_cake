@@ -18,7 +18,7 @@
       <% @order.each do |order| %>
       <tbody>
         <tr>
-          <td class="py-2 border-top border-bottom"><%= order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+          <td class="py-2 border-top border-bottom"><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M"), admin_order_path(order) %></td>
           <td class="py-2 border-top  border-bottom"><%= order.customer.last_name %><%= order.customer.first_name %></td>
           <% @sum = 0 %>
           <% order.order_details.each do |order_detail| %>

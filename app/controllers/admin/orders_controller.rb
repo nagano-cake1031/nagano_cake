@@ -2,7 +2,6 @@ class Admin::OrdersController < ApplicationController
 
  def show
    @order = Order.find(params[:id])
-   @cart_items = current_customer.cart_items
    @sum = 0
  end
 

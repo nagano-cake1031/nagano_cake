@@ -9,7 +9,7 @@
     <thead>
     <tr>
       <td class="py-2 font-weight-bold">購入者</td>
-      <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
+      <td><%= link_to @order.customer.last_name, admin_customer_path %><%= link_to @order.customer.first_name, admin_customer_path %></td>
     </tr>
     <tr>
        <td class="py-2 font-weight-bold">注文日</td>

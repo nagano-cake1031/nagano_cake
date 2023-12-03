@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'items/:id' => "items#show", as: 'item'
     get 'items/:id/edit' => "items#edit", as: 'items_edit'
     patch 'items/:id' => "items#update"
-    get 'orders/:id' => "orders#show"
+    resources :orders, only:[:show]
   end
 
  scope module: :public do
