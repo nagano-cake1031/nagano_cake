@@ -1,39 +1,34 @@
 <div class="container">
     <div class="row">
-        <div class="col-5">
-        <div class="mt-5 pl-5 alert-secondary">
+        <div class="col-2 mt-5 pl-5 alert-secondary mb-4">
         <h5>商品詳細</h5>
         </div>
+    </div>
 
-            <div class="mt-5">
+    <div class="row">
+    <table class="mt-5 col-5">
             <p><%= image_tag @item.image, :size =>'400x200' %></p>
-            </div>
-        </div>
+    </div>
 
-        <div class="col-7 mt-5">
-            <table class="m-3">
-                <td>
-                    <tr>商品名</tr>
-                    <tr><%= @item.name %></tr>
-                </td>
-            </table>
-            <table class="m-3">
-                 <td>
-                    <tr>商品説明</tr>
-                    <tr><%= @item.introduction %></tr>
-                </td>
-            </table>
-            <table class="m-3">
-                <td>
-                    <tr>税抜価格</tr>
-                    <tr><%= @item.price %>円</tr>
-                </td>
-            </table>
-
-            <footer>
-            <%= link_to "編集する", admin_items_edit_path(@item.id), class: "btn-success p-3 rounded" %>
-            </footer>
-        </tabel>
+        <div class="row">
+        <div class="col-5 mt-5 ml-5">
+            <tr>
+                <td>商品名</td>
+                <td><%= @item.name %></td>
+            </tr>
+            <tr>
+                <td>商品説明</td>
+                <td><%= @item.introduction %></td>
+            </tr>
+            <tr>
+                <td>税抜価格</td>
+                <td><%= @item.price %>円</td>
+            </tr>
+            <tr>
+                <td><%= link_to "編集する", admin_items_edit_path(@item.id), class: "btn-success p-3 rounded" %></td>
+            </tr>
         </div>
+        </div>
+    </table>
     </div>
 </div>
