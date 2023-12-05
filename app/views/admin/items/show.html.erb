@@ -14,19 +14,21 @@
         <div class="col-5 mt-5 ml-5">
             <tr>
                 <td>商品名</td>
-                <td><%= @item.name %></td>
+                <td class="p-1"><%= @item.name %></td>
             </tr>
             <tr>
                 <td>商品説明</td>
-                <td><%= @item.introduction %></td>
+                <td class="p-1"><%= @item.introduction %></td>
             </tr>
             <tr>
                 <td>税抜価格</td>
-                <td><%= @item.price %>円</td>
+                <td class="p-1"><%= @item.price %>円</td>
             </tr>
-            <tr>
-                <td><%= link_to "編集する", admin_items_edit_path(@item.id), class: "btn-success p-3 rounded" %></td>
-            </tr>
+            
+            <footer>
+                </div><%= link_to "編集する", admin_items_edit_path(@item.id), class: "btn-success p-3 rounded m-5" %></div>
+            </footer>
+        </div>
         </div>
         </div>
     </table>

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+      <div class="mt-5 pl-5 alert-secondary text-center col-2 mb-4">
+        <h5>注文履歴詳細</h5>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-6">
+    <table>
+      <h6 class="font-weight-bold">注文情報</h6>
+      <tr>
+        <td class="alert-secondary py-2 pr-5">注文日</td>
+        <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <td class="alert-secondary py-2 pr-5">配送先</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="alert-secondary py-2 pr-5">支払方法</td>
+        <td><%= @order.payment_method %></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>

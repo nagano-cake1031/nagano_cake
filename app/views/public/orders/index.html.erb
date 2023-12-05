@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+      <div class="mt-5 pl-5 alert-secondary text-center col-2 mb-4">
+        <h5>注文履歴一覧</h5>
+      </div>
+    </div>
+  <table>
+    <div class="row">
+      <thead>
+        <tr>
+           <td class="alert-secondary p-3 border">注文日</td>
+           <td class="alert-secondary p-3 border">配送先</td>
+           <td class="alert-secondary p-3 border">注文商品</td>
+           <td class="alert-secondary p-3 border">支払金額</td>
+           <td class="alert-secondary p-3 border">注文詳細</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td class="py-2 pr-4 border"><%= order.created_at.strftime("%Y/%m/%d") %></td>
+          <td class="py-2 pr-4 border">〒<%= order.post_code %><br><%= order.address %><br><%= order.name %></td>
+          <td class="py-2 pr-8 border">
+            <% order.order_details.each do |order_detail| %>
+            <%= order_detail.item.name %>
+            <% end %>
+          </td>
+          <td class="py-2 pr-4 border"><%= order.total_price %>円</td>
+          <td class="p-2 border"><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+       </div>
+     </table>
+
+</div>
