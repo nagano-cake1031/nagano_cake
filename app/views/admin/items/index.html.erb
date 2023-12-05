@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
        <table>
-            <div class="mt-5 pl-5 alert-secondary col-2">
+            <div class="mt-5 pl-5 alert-secondary col-2 mb-3">
             <h5>商品一覧</h5>
             </div>
        </table>
@@ -16,7 +16,7 @@
         </table>
 
         <% @items.each do |item| %>
-        <table class="mt-2 mb-2 w-50 text-left border-bottom col-12">
+        <table class="mt-2 mb-2 w-50 text-left border-bottom col-12 mb-5">
             <tr>
                 <td class="pl-5 pt-1 pb-2 col-2"><%= item.id %></td>
                 <td class="col-5 text-center"><%= link_to item.name, admin_item_path(item.id) %></td>
@@ -27,7 +27,7 @@
         </body>
 
         <div class="col-12">
-        <footer class="pl-5 pt-5 w-100 pb-5 text-center">
+        <footer class="pl-5 pt-5 w-100 pb-5 text-center mb-5">
          <%= link_to "新規商品登録", admin_items_new_path, class: "btn-success p-3 rounded" %>
         <%= paginate @items %>
         </footer>

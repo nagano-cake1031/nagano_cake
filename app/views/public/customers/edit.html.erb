@@ -1,7 +1,7 @@
 <div clas="container">
   <div class="row">
     <div class="mt-5">
-    <h5 class="col-4 mx-auto mb-5 ml-5 alert-secondary">会員情報編集</h5>
+    <h5 class="col-3 p-2 mx-auto mb-5 ml-5 alert-secondary text-center">会員情報編集</h5>
 
    <%= form_with model: @customer, url: my_page_edit_path do |f| %>
   <table class="col-12 mb-3 ml-5">
@@ -34,11 +34,11 @@
       </tr>
       <tr>
         <td><%= f.submit '編集内容を保存', class: "btn btn-success ml-5 mt-5" %></td>
-        <td><%= link_to "退会する", customers_withdraw_confirmation_path, class: "btn btn-danger mt-5" %></td>
+        <td><%= link_to "退会する", customers_withdraw_confirmation_path, method: :get, class: "btn btn-danger mt-5" %></td>
       </tr>
     </tbody>
   </table>
-  <% end %>
+   <% end %>
 
   </div>
   </div>

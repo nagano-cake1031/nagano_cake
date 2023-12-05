@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     get '/customers/orders' => "/orders#index"
     get '/customers/cart_items' => "/cart_items#index"
     post '/cart_items/:id' => "cart_items#show"
-    get '/customers/withdraw_confirmation' => "/customers#withdraw_confirmation"
+    get '/public/customers/withdraw_confirmation' => "/public/customers#withdraw_confirmation", as: 'customers_withdraw_confirmation'
     patch '/customers/withdraw' => "/customers#withdraw"
   end
 
