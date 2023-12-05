@@ -50,7 +50,7 @@
 
     <div class="row">
       <div class="col-12 mt-5">
-        <table>
+        <table class="mb-5">
         <p class="font-weight-bold">注文内容</p>
         <tr>
           <td class="alert-secondary border py-3 w-50">商品</td>
@@ -58,16 +58,18 @@
           <td class="alert-secondary border py-3 pr-5">個数</td>
           <td class="alert-secondary border py-3 pr-5">小計</td>
         </tr>
-
+        <% @order_details.each do |order_detail| %>
         <tr>
-          <td class="border py-3"><%= @order_detail.item.name %></td>
-          <td class="border py-3"><%= @order_detail.price %>円</td>
-          <td class="border py-3"><%= @order_detail.amount %>個</td>
-          <td class="border py-3"><%= @order_detail.subtotal_order_detail %></td>
+          <td class="border py-3"><%= order_detail.item.name %></td>
+          <td class="border py-3"><%= order_detail.price %>円</td>
+          <td class="border py-3"><%= order_detail.amount %>個</td>
+          <td class="border py-3"><%= order_detail.subtotal_order_detail %></td>
         </tr>
+        <% end %>
 
         </table>
       </div>
     </div>
 
 </div>
+
