@@ -9,7 +9,7 @@
 
       <tr>
         <td><%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary mt-5 mr-4" %></td>
-        <td><%= link_to "退会する", customers_withdraw_confi_path, method: :patch, class: "btn btn-danger mt-5" %></td>
+        <td><%= link_to "退会する", customers_withdraw_path, method: :patch, class: "btn btn-danger mt-5", "data-confirm" => "本当に退会しますか？" %></td>
       </tr>
     <% end %>
 
