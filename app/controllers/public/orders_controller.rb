@@ -3,6 +3,9 @@ class Public::OrdersController < ApplicationController
 def new
  @order = Order.new
  @customer = current_customer
+ if @customer.cart_items.empty?
+  redirect_to items_path
+ end
 end
 
 def create

@@ -21,6 +21,10 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw_confirmation
+    customer = current_customer
+    customer.update(is_active: false)
+    reset_session
+    redirect_to new_customer_session_path
   end
 
   private

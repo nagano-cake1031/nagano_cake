@@ -6,10 +6,10 @@
           <%= image_tag @item.image, :size =>'400x200' %>
         </td>
        </tr>
-
+      </div>
       <%= form_with model: @cart_item, method: :post, url: cart_items_path do |f| %>
       <%= f.hidden_field :item_id, :value => @item.id %>
-      </div>
+      
 
       <div class="col-6 pt-5">
       <table>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'users/show'
   get 'users/edit'
+  get 'orders/complete' => "public/orders#complete"
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
@@ -29,7 +30,6 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :create, :destroy, :update]
     resources :orders, only: [:index, :new, :show]
     post '/orders/check' => "orders#check"
-    get '/orders/complete' => "orders#complete"
     post '/orders' => "orders#create", as: 'orders_create'
     delete '/cart_items/destroy_all' => "cart_items#destroy_all"
     get '/customers/my_page' => "/customers#show"
