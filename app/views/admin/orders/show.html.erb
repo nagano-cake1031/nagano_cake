@@ -9,7 +9,7 @@
     <thead>
     <tr>
       <td class="py-2 font-weight-bold">購入者</td>
-      <td><%= link_to @order.customer.last_name, admin_customer_path %><%= link_to @order.customer.first_name, admin_customer_path %></td>
+      <td><%= link_to @customer.last_name, admin_customer_path(@customer.id) %><%= link_to @customer.first_name, admin_customer_path(@customer.id) %></td>
     </tr>
     <tr>
        <td class="py-2 font-weight-bold">注文日</td>
@@ -17,7 +17,7 @@
     </tr>
     <tr>
       <td class="py-2 font-weight-bold">配送先</td>
-      <td class="pr-2">〒<%= @order.customer.postal_code %> <%= @order.customer.address %> <%= @order.name %></td>
+      <td class="pr-2">〒<%= @customer.postal_code %> <%= @order.customer.address %> <%= @order.name %></td>
     </tr>
     <tr>
       <td class="py-2 font-weight-bold">支払方法</td>
