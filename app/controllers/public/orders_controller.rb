@@ -18,7 +18,7 @@ def create
  @order_detail.item_id = cart_item.item_id
  @order_detail.order_id = @order.id
  @order_detail.amount = cart_item.amount
- @order_detail.price = (cart_item.item.price*1.08).floor
+ @order_detail.price = (cart_item.item.price*1.10).floor
  @order_detail.save
  end
  @cart_item.destroy_all
@@ -48,8 +48,7 @@ end
 
 def show
  @order = Order.find(params[:id])
- @sum = 0
- @order_details = OrderDetail.where(order_id: params[:id])
+ @order_details = @order.order_details
 end
 
 private
