@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-3 alert-secondary text-center">
+    <div class="col-3 alert-secondary text-center mt-5">
     <h5>ショッピングカート</h5>
+    </div>
+    <div class="col-8">
+      <%= link_to "カート内を空にする", cart_items_destroy_all_path, method: :delete, "date-confirm" => "本当に空にしますか？", class: "btn btn-primary mt-5" %>
     </div>
   </div>
   <div class="row">
